@@ -3,8 +3,8 @@ dist: trusty
 jdk: oraclejdk8
 env:
   global:
-    - ANDROID_TARGET=android-22
-    - ANDROID_ABI=google_apis/armeabi-v7a
+    - ANDROID_TARGET=android-26
+    - ANDROID_ABI=armeabi-v7a
 android:
   components:
     - build-tools-26.0.2
@@ -13,7 +13,7 @@ android:
     - extra-google-m2repository
     - extra-android-m2repository
     - sys-img-x86-android-26
-    - sys-img-armeabi-v7a-android-17
+    - sys-img-armeabi-v7a-android-26
 script:
   - ./gradlew build jacocoTestReport assembleAndroidTest
   - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
