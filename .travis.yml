@@ -12,7 +12,7 @@ android:
     - extra-google-google_play_services
     - extra-google-m2repository
     - extra-android-m2repository
-    - sys-img-${ANDROID_ABI}-${ANDROID_TARGET}
+    - sys-img-x86-armeabi-v7a-android-26
 script:
   - ./gradlew build jacocoTestReport assembleAndroidTest
   - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
