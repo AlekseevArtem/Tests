@@ -1,10 +1,20 @@
 # используем язык java. Travis CI поддерживает другие языки тоже.
-language: java
-jdk:
-  - openjdk13
+language: android
+dist: trusty
+android:
+  components:
+    - build-tools-29.0.2
+    - android-29
 
 # используем режим обычного пользователя для сборки проекта.
 sudo: false
+
+script:
+  - ./gradlew build assembleDebug
+
+before_install:
+  - chmod +x gradlew
+  - yes | sdkmanager "platforms;android-29"
 
 # после выполнения сборки запустить скрипт, который будет собирать статистику по JaCoCo
 # Здесь используется сторонни сервис https://codecov.io/
