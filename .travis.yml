@@ -9,7 +9,6 @@ env:
     - ANDROID_BUILD_TOOLS=29.0.2
     - ADB_INSTALL_TIMEOUT=15
     - ANDROID_ABI=armeabi-v7a
-    - CODECOV_TOKEN="baf01638-c7b8-40c4-affe-42d29afe5642"
 android:
   components:
     - tools
@@ -30,14 +29,6 @@ android:
     - google-gdk-license-.+
 before_script:
   - echo no | android create avd --force -n test -t android-21 --abi armeabi-v7a
-  - emulator -avd test -no-skin -no-audio -no-window &
-  - android-wait-for-emulator
+  - emulator -avd test -no-audio &
+  - sleep 300
   - adb shell setprop dalvik.vm.dexopt-flags v=n,o=v
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
-notifications:
-  email:
-    recipients:
-      -tema9991@mail.ru
-    on_success: never # default: change
-    on_failure: always # default: always
