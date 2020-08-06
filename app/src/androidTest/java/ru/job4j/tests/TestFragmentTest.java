@@ -17,7 +17,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 public class TestFragmentTest {
     @Rule
     public FragmentTestRule<?, TestFragment> fragmentTestRule =
-            FragmentTestRule.create(TestFragment.class);
+            FragmentTestRule.create(TestFragment.class,true , true);
 
     @Test
     public void checkLabelText() {
