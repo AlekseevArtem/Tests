@@ -6,6 +6,7 @@ buildscript {
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.0.1"
+        classpath "androidx.multidex:multidex:2.0.1"
     }
 }
 
